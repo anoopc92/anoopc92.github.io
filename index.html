@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anoop Chakkingal - Researcher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .tagline {
+            margin-top: 20px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9ff;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .job-period {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .company {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .location {
+            color: #888;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .activities, .expertise {
+            margin-top: 15px;
+        }
+
+        .activities ul, .expertise ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .activities li, .expertise li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .activities li::before, .expertise li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 1.2em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 3px solid #667eea;
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .publications {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .publication-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+
+        .pub-title {
+            font-weight: 600;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .pub-details {
+            color: #666;
+            font-size: 0.95em;
+            margin-top: 5px;
+        }
+
+        .impact-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .impact-box h4 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .impact-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .impact-box li {
+            padding: 5px 0 5px 20px;
+            position: relative;
+        }
+
+        .impact-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .subtitle { font-size: 1.2em; }
+            .header { padding: 30px 20px; }
+            .content { padding: 20px; }
+            .job-header { flex-direction: column; }
+            .job-period { margin-top: 5px; }
+        }
+
+        .footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Anoop Chakkingal</h1>
+                <div class="subtitle">Researcher</div>
+                <p class="tagline">
+                    Innovative professional with a Ph.D. in Computational Chemical Engineering and experience in developing strategies and analytical solutions for technological projects. Expertise in preparing grant proposals, collaborating with cross-disciplinary stakeholders, and delivering actionable insights for innovation. Passionate about aligning cutting-edge technologies with strategic business objectives, ensuring impactful outcomes in global markets.
+                </p>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>Work Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">AI / GenAI Researcher</div>
+                            <div class="company">Walmart centre / IIT Madras</div>
+                            <div class="location">India</div>
+                        </div>
+                        <div class="job-period">March–Sept 2025</div>
+                    </div>
+                    <div class="expertise">
+                        <ul>
+                            <li><strong>Applied LLM Systems Engineering</strong> – designing end-to-end pipelines for data extraction, cleaning, summarization, visualization, and interactive UIs (Flask, Tkinter).</li>
+                            <li><strong>Knowledge Graphs & RAG</strong> – integrating structured retrieval, optimization, and domain knowledge with LLMs to improve accuracy and insights.</li>
+                            <li><strong>Mathematical & Theoretical Foundations</strong> – applying statistical physics, diffusion models, optimization (Lagrangian methods), and probabilistic reasoning to GenAI efficiency and learning theory.</li>
+                            <li><strong>Domain-Driven AI Applications</strong> – adapting AI for engineering, manufacturing, WASH (water, sanitation, hygiene), BOM generation, and educational/interactive tools.</li>
+                            <li><strong>AI Infrastructure & Optimization</strong> – hands-on with Docker, LLM finetuning, vLLM inference of SLM.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Research Engineer</div>
+                            <div class="company">Solvay Chair: Centrale Lille</div>
+                            <div class="location">Lille, France</div>
+                        </div>
+                        <div class="job-period">Oct 2024</div>
+                    </div>
+                    <div class="activities">
+                        <ul>
+                            <li>Partnered with Solvay for product design and to build computational models as part of the Plastiloop project focused on circular economy innovations.</li>
+                            <li>Designed and implemented bio-informatics models (LSTM, GNN).</li>
+                            <li>Created technical documentation and presented findings to stakeholders.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Researcher</div>
+                            <div class="company">Procter and Gamble: Ghent University</div>
+                            <div class="location">Belgium</div>
+                        </div>
+                        <div class="job-period">2023–2024</div>
+                    </div>
+                    <div class="activities">
+                        <ul>
+                            <li><strong>Business Decision Making:</strong> Associated with behavioral and consumer research team of Product research. Preparing and submitting dossiers for product approvals and conducting risk assessments.</li>
+                            <li>Collaborated seamlessly with Product Researchers and Consumer Market Initiatives to leverage data and extract business insights.</li>
+                            <li>Conducted consumer/product research using digital technologies (sensor data).</li>
+                            <li>Applied data analytical skills to extract valuable insights and informed decision-making.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Dual PhD Researcher - Condensed matter chemistry/Chemical engineering</div>
+                            <div class="company">Ghent University / Centrale Lille</div>
+                            <div class="location">Belgium/France</div>
+                        </div>
+                        <div class="job-period">2019–2023</div>
+                    </div>
+                    <div class="activities">
+                        <ul>
+                            <li><strong>Industry Collaboration:</strong> Collaborated with Chemical industry partners to develop advanced computational models, both mechanistic (Microkinetic modelling) and Machine learning models like XGBoost, SVM, and neural networks. Experience in chemical recycling by partnering with EU circular economy initiative as part of Interreg PSYCHE project.</li>
+                            <li>Internship at GSK Pharmaceuticals on their product development and digitalisation initiative, Wavre, Belgium</li>
+                            <li><strong>Data Analysis and Integration:</strong> Assessed the model and interpreted it using SHAP, Permutation importance, and PDP, providing actionable insights for process optimization</li>
+                            <li><strong>Mentorship:</strong> Supervised and mentored 3 master's thesis students, providing guidance on data analysis and modeling techniques. The projects were partnered with ArcelorMittal (steel) industrial stakeholders to develop models on their decarbonisation initiative for their blast Furnace sintering process</li>
+                            <li><strong>Knowledge Transfer:</strong> Conducted and facilitated three technical workshops for groups of students and researchers, ranging from 5 to 30 participants</li>
+                        </ul>
+                    </div>
+                    <div class="impact-box">
+                        <h4>Impact</h4>
+                        <ul>
+                            <li>Published 5 research papers in top-tier journals</li>
+                            <li>Delivered 3 numerical models to industrial partners for both detailed and simplified assessment of Fischer-tropsch catalysis process (EU circular economy initiative on plastics to chemicals)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Fellowship Researcher: Decision Science Department</div>
+                            <div class="company">IIM Bangalore</div>
+                            <div class="location">India</div>
+                        </div>
+                        <div class="job-period">2017–2018</div>
+                    </div>
+                    <div class="activities">
+                        <ul>
+                            <li>Collaborated with faculty and industry partners on real-world decision science applications</li>
+                            <li>Developed data-driven models for business analytics and operational efficiency</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Education</h2>
+                
+                <div class="education-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">PhD in Computational Chemical Engineering</div>
+                            <div class="company">Ghent University</div>
+                            <div class="location">Gent, Belgium</div>
+                        </div>
+                        <div class="job-period">2019–2022</div>
+                    </div>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Specialisation: Computational statistical and machine learning model development</li>
+                        <li>Achievement: 5 high impact computational papers</li>
+                    </ul>
+                </div>
+
+                <div class="education-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Master of Science by Research</div>
+                            <div class="company">Indian Institute of Technology</div>
+                            <div class="location">Madras, India</div>
+                        </div>
+                        <div class="job-period">2014–2017</div>
+                    </div>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Specialisation: Chemical Engineering, CGPA: 8.94/10</li>
+                        <li>Achievement: Rank 4 in the batch</li>
+                    </ul>
+                </div>
+
+                <div class="education-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Bachelor of Technology</div>
+                            <div class="company">University of Calicut</div>
+                            <div class="location">Kerala, India</div>
+                        </div>
+                        <div class="job-period">2010–2014</div>
+                    </div>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Specialisation: Chemical Engineering, Obtained Distinction with Honours, CGPA: 8.61/10</li>
+                        <li>Achievement: Awarded MHRD full scholarship for achieving 99.5 percentile in entrance examination</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Skills & Personal</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Software</h3>
+                        <p>Python (PyTorch, Keras), SQL, Databricks, Microsoft Office Suite</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <p>English (fluent), Malayalam (native), Hindi (fluent), Dutch (intermediate)</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Interests</h3>
+                        <p>Reading (Finance), Watching movies (esp. comedy), Playing cricket</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Professional Publications</h2>
+                <div class="publications">
+                    <div class="publication-item">
+                        <div class="pub-title">Advancing Bio-catalysis Predictions: Leveraging Machine Learning Models for Accurate multi-class Activity Classification</div>
+                        <div class="pub-details">Under submission 2024, Chemical Engineering Journal</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Recent advances in the use of Steady-State Isotopic Transient Kinetic Analysis data in (micro)kinetic modeling for catalyst and process design</div>
+                        <div class="pub-details">2023, Catalysis Communications</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Multi-output machine learning models for kinetic data evaluation: A Fischer–Tropsch synthesis case study</div>
+                        <div class="pub-details">2022, Chemical Engineering Journal</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Efficient Promoters and Reaction Paths in the CO2 Hydrogenation to Light Olefins over Zirconia-Supported Iron Catalysts</div>
+                        <div class="pub-details">2022, ACS Catalysis</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Machine learning based interpretation of microkinetic data: A Fischer–Tropsch synthesis case study</div>
+                        <div class="pub-details">2022, Reaction Chemistry & Engineering</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Unravelling the influence of catalyst properties on light olefin production via Fischer–Tropsch synthesis: A descriptor space investigation using Single-Event MicroKinetics</div>
+                        <div class="pub-details">2021, Chemical Engineering Journal</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Anoop Chakkingal. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
